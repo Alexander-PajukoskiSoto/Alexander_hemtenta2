@@ -15,7 +15,7 @@
 
     $dbms_connect = mysqli_conntect($serverName,$dbmsUser,$dbmsPassword,$dbName);
 
-    $sqlCreateTableProduct = "CREATE TABLE product(productID INT PRIMARY KEY, productName VARCHAR,)"
+    $sqlCreateTableProduct = "CREATE TABLE product(productID INT PRIMARY KEY, productName VARCHAR, price INT, productImage IMAGE)";
     //connected
     if (!$dbms_connect){
         echo "hlep";

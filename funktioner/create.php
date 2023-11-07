@@ -55,12 +55,17 @@ if($_POST){
             <td><input type='text' name='price'/></td>
         </tr>
         <tr>
+            <td>Image</td>
+            <td>  <input type="file" name="choosefile" value="" /></td>
+        </tr>
+        <tr>
             <td></td>
             <td>
                 <input type='submit' value='Save' />
                 <a href='../index.php'>Back to read products</a>
             </td>
         </tr>
+        
     </table>
 </form>
 

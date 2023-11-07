@@ -46,9 +46,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         <td>${$price}</td>
         <td>";
             // read one record
-            echo "<a href='read_one.php?id={$id}'>Read</a>";
+            echo "<a href='./funktioner/read_one.php?id={$id}'>Read</a>";
             // we will use this links on next part of this post
-            echo "<a href='update.php?id={$id}'>Edit</a>";
+            echo "<a href='./funktioner/update.php?id={$id}'>Edit</a>";
             // we will use this links on next part of this post
             echo "<a href='#' onclick='delete_user({$id});'  >Delete</a>";
         echo "</td>";

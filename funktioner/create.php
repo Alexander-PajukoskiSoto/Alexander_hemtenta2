@@ -58,7 +58,7 @@ if($_POST){
             <td></td>
             <td>
                 <input type='submit' value='Save' />
-                <a href='index.php'>Back to read products</a>
+                <a href='../index.php'>Back to read products</a>
             </td>
         </tr>
     </table>

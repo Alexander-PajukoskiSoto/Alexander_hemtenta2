@@ -7,6 +7,5 @@
 </head>
 <body>
     <?php include "./funktioner/connect.php"?>
-    <?php include "./funktioner/create.php"?>
 </body>
 </html>

@@ -50,7 +50,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             // we will use this links on next part of this post
             echo "<a href='./funktioner/update.php?id={$id}'>Edit</a>";
             // we will use this links on next part of this post
-            echo "<a href='#' onclick='delete_user({$id});'  >Delete</a>";
+            echo "<a href='#' onclick='delete_user({$id});'>Delete</a>";
         echo "</td>";
     echo "</tr>";
 }

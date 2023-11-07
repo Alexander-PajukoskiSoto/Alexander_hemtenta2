@@ -43,7 +43,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         <td>{$id}</td>
         <td>{$productName}</td>
         <td>{$productDescription}</td>
-        <td>${$price}</td>
+        <td>$ {$price}</td>
         <td>";
             // read one record
             echo "<a href='./funktioner/read_one.php?id={$id}'>Read</a>";

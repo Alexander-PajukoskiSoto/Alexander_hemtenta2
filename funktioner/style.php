@@ -27,5 +27,8 @@
     a:hover{
         color:#e1e1e1;
     }
+    .table tr:nth-child(odd){
+        background-color:#e1e1e1;
+    }
 </style>
     

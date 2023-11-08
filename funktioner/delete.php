@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 // include database connection
 include './connect.php';
@@ -22,3 +23,5 @@ catch(PDOException $exception){
     die('ERROR: ' . $exception->getMessage());
 }
 ?>
+=======
+>>>>>>> parent of 0665d10 (Delete WIP)

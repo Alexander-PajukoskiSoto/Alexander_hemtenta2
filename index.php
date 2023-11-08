@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products!</title>
+    <script type='text/javascript'>
+// confirm record deletion
+function delete_user( id ){
+    var answer = confirm('Are you sure?');
+    if (answer){
+        // if user clicked ok,
+        // pass the id to delete.php and execute the delete query
+        window.location = './funktioner/delete.php?id=' + id;
+    }
+}
+</script>
 </head>
 <body>
     <!-- DB CONNECT -->
@@ -11,7 +22,7 @@
     <?php
         // delete message prompt will be here
         // select all data
-        $query = "SELECT id, productName, productDescription, price FROM productInfo ORDER BY id DESC";
+        $query = "SELECT id, productName, productDescription, price, productImage FROM productInfo ORDER BY id DESC";
         $stmt = $con->prepare($query);
         $stmt->execute();
         // this is how to get number of rows returned
@@ -28,6 +39,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Image</th>
                 <th>Action</th>
             </tr>";
             // retrieve our table contents
@@ -40,6 +52,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         <td>{$productName}</td>
         <td>{$productDescription}</td>
         <td>$ {$price}</td>
+        <td><img src='./image/$productImage' alt='$productImage' width='150'></img></td>
         <td>";
             // read one record
             echo "<a href='./funktioner/read_one.php?id={$id}'>Read</a>";

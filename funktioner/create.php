@@ -12,17 +12,19 @@ if($_POST){
     // include database connection
     try{
         // insert query
-        $query = "INSERT INTO productInfo SET productName=:productName, productDescription=:productDescription, price=:price, created=:created";
+        $query = "INSERT INTO productInfo SET productName=:productName, productDescription=:productDescription, price=:price, productImage=:productImage, created=:created";
         // prepare query for execution
         $stmt = $con->prepare($query);
         // posted values
         $name=htmlspecialchars(strip_tags($_POST['productName']));
         $description=htmlspecialchars(strip_tags($_POST['productDescription']));
         $price=htmlspecialchars(strip_tags($_POST['price']));
+        $productImage=htmlspecialchars(strip_tags($_FILES['productImage']['name']));
         // bind the parameters
         $stmt->bindParam(':productName', $name);
         $stmt->bindParam(':productDescription', $description);
         $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':productImage', $productImage);
         // specify when this record was inserted to the database
         $created=date('Y-m-d H:i:s');
         $stmt->bindParam(':created', $created);
@@ -56,7 +58,7 @@ if($_POST){
         </tr>
         <tr>
             <td>Image</td>
-            <td>  <input type="file" name="choosefile" value="" /></td>
+            <td>  <input type="file" name="productImage" value="" /></td>
         </tr>
         <tr>
             <td></td>

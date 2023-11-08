@@ -1,4 +1,27 @@
+
+<!-- REAL CONNECTION!! -->
 <?php
+//used to connect to the database
+$host = "localhost";
+$db_name = "products";
+$username = "root";
+$password = "";
+try {
+    $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
+}
+// show error
+catch(PDOException $exception){
+    echo "Connection error: " . $exception->getMessage();
+}
+?>
+
+<?php
+
+
+
+
+
+// THIS PART WAS USED TO MAKE THE DATABASE AND TABLE
 //login credentials
 $serverName="localhost";
 $user="root";
@@ -36,22 +59,45 @@ if ($productConnect->connect_error) {
     die("Connection failed: " . $productConnect->connect_error);
   }
 //create table
-// $productTable = "CREATE TABLE productInfo(
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     productName VARCHAR(30) NOT NULL,
-//     productDescription text NOT NULL,
-//     price double NOT NULL,
-//     created datetime NOT NULL,
-//     modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// )";
+//  $productTable = "CREATE TABLE productInfo(
+//      id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//      productName VARCHAR(30) NOT NULL,
+//      productDescription text NOT NULL,
+//      price double NOT NULL,
+//      productImage VARCHAR(255) NOT NULL,
+//      created datetime NOT NULL,
+//      modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+//  )";
 //creation check
 //WORKS
-//  if ($productConnect->query($productTable) === TRUE) {
-//      echo "Table productInfo created successfully";
-//    } else {
-//      echo "Error creating table: " . $productConnect->error;
-//    }
+  // if ($productConnect->query($productTable) === TRUE) {
+  //     echo "Table productInfo created successfully";
+  //   } else {
+  //     echo "Error creating table: " . $productConnect->error;
+  //   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //sample data
 
   // $sampleData="INSERT INTO productInfo (id, productName, productDescription) VALUES

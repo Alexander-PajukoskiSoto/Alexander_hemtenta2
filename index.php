@@ -31,12 +31,8 @@
                 <th>Action</th>
             </tr>";
             // retrieve our table contents
-// fetch() is faster than fetchAll()
-// http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     // extract row
-    // this will make $row['firstname'] to
-    // just $firstname only
     extract($row);
     // creating new table row per record
     echo "<tr>
@@ -64,6 +60,5 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
         
 ?>
-
 </body>
 </html>

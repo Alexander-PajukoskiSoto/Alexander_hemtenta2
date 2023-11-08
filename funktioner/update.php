@@ -8,7 +8,6 @@
 
 </head>
 <body>
-      <!-- container -->
       <div>
         <div>
             <h1>Update Product</h1>

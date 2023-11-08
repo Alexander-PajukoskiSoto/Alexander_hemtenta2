@@ -45,6 +45,7 @@ function delete_user( id ){
                 <th>Action</th>
             </tr>";
             // retrieve our table contents
+            //ASSOC 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     // extract row
     extract($row);
@@ -58,9 +59,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         <td>";
             // read one record
             echo "<a href='./funktioner/read_one.php?id={$id}'>Read</a>";
-            // we will use this links on next part of this post
+            //edit button
             echo "<a href='./funktioner/update.php?id={$id}'>Edit</a>";
-            // we will use this links on next part of this post
+            //delete button
             echo "<a href='#' onclick='delete_user({$id});'>Delete</a>";
         echo "</td>";
     echo "</tr>";

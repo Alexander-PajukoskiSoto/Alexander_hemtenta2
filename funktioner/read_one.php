@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A product</title>
 <?php include "./style.php"?>
 
 </head>
@@ -15,7 +15,6 @@
         </div>
         <?php
 // get passed parameter value, in this case, the record ID
-// isset() is a PHP function used to verify if a value is there or not
 $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 //include database connection
 include './connect.php';
@@ -24,13 +23,12 @@ try {
     // prepare select query
     $query = "SELECT * FROM productInfo WHERE id = ? LIMIT 0,1";
     $stmt = $con->prepare( $query );
-    // this is the first question mark
     $stmt->bindParam(1, $id);
     // execute our query
     $stmt->execute();
     // store retrieved row to a variable
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    // values to fill up our form
+    // values to fill up form
     $productName = $row['productName'];
     $productDescription = $row['productDescription'];
     $price = $row['price'];

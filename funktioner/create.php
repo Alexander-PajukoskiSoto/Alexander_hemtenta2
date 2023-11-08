@@ -12,10 +12,9 @@
 
 ?>
 <?php
-
+    // include database connection
     include './connect.php';
 if($_POST){
-    // include database connection
     try{
         // insert query
         $query = "INSERT INTO productInfo SET productName=:productName, productDescription=:productDescription, price=:price, productImage=:productImage, created=:created";

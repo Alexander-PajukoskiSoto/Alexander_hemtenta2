@@ -3,7 +3,6 @@
 include './connect.php';
 try {
     // get record ID
-    // isset() is a PHP function used to verify if a value is there or not
     $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
     // delete query
     $query = "DELETE FROM productInfo WHERE id = ?";
@@ -14,6 +13,7 @@ try {
         // tell the user record was deleted
         header('Location: ../index.php?action=deleted');
     }else{
+        //if doesn't work
         die('Unable to delete record.');
     }
 }

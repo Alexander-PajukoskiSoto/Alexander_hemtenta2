@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
+<?php include "./style.php"?>
+
 </head>
 <body>
 <?php
@@ -49,7 +51,7 @@ if($_POST){
 ?>
 <!-- html form here where the product information will be entered -->
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
-    <table>
+    <table class="table">
         <tr>
             <td>Name</td>
             <td><input type='text' name='productName'/></td>

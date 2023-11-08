@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update</title>
+<?php include "./style.php"?>
+
 </head>
 <body>
       <!-- container -->
@@ -79,7 +81,7 @@ if($_POST){
 ?>
 <!--we have our html form here where new record information can be updated-->
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post" enctype="multipart/form-data">
-    <table>
+    <table class="table">
         <tr>
             <td>Name</td>
             <td><input type='text' name='productName' value="<?php echo htmlspecialchars($productName, ENT_QUOTES);  ?>" /></td>

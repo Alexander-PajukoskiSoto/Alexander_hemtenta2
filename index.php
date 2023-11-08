@@ -4,27 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products!</title>
-    <script type='text/javascript'>
-// confirm record deletion
-function delete_user( id ){
-    var answer = confirm('Are you sure?');
-    if (answer){
-        // if user clicked ok,
-        // pass the id to delete.php and execute the delete query
-        window.location = './funktioner/delete.php?id=' + id;
-    }
-}
-</script>
 </head>
 <body>
     <!-- DB CONNECT -->
     <?php include "./funktioner/connect.php"?>
     <?php
-        $action = isset($_GET['action']) ? $_GET['action'] : "";
-        // if it was redirected from delete.php
-        if($action=='deleted'){
-            echo "<div>Record was deleted.</div>";
-        }
+        // delete message prompt will be here
         // select all data
         $query = "SELECT id, productName, productDescription, price FROM productInfo ORDER BY id DESC";
         $stmt = $con->prepare($query);
@@ -46,6 +31,8 @@ function delete_user( id ){
                 <th>Action</th>
             </tr>";
             // retrieve our table contents
+// fetch() is faster than fetchAll()
+// http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     // extract row
     // this will make $row['firstname'] to

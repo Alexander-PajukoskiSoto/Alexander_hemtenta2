@@ -6,17 +6,17 @@ $password="";
 $db="products";
 
 //create connection
-$dbConnect = mysqli_connect($serverName,$user,$password);
+// $dbConnect = mysqli_connect($serverName,$user,$password);
 
 //check connection
- if(!$dbConnect){
-     echo"ERROR!";
- }
- else{
-     echo"SUCCESS!";
- }
+//  if(!$dbConnect){
+//      echo"ERROR!";
+//  }
+//  else{
+//      echo"SUCCESS!";
+//  }
 //create database
-$productDatabase = "CREATE DATABASE products";
+// $productDatabase = "CREATE DATABASE products";
 
 //database check: works
 
@@ -27,7 +27,7 @@ $productDatabase = "CREATE DATABASE products";
 // }
 //close connection
 
-$dbConnect=null;
+// $dbConnect=null;
 //reconnect with new database
 $productConnect = mysqli_connect($serverName,$user,$password,$db);
 // check connection
@@ -36,21 +36,21 @@ if ($productConnect->connect_error) {
     die("Connection failed: " . $productConnect->connect_error);
   }
 //create table
-$productTable = "CREATE TABLE productInfo(
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    productName VARCHAR(30) NOT NULL,
-    productDescription text NOT NULL,
-    price double NOT NULL,
-    created datetime NOT NULL,
-    modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+// $productTable = "CREATE TABLE productInfo(
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     productName VARCHAR(30) NOT NULL,
+//     productDescription text NOT NULL,
+//     price double NOT NULL,
+//     created datetime NOT NULL,
+//     modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// )";
 //creation check
 //WORKS
-// if ($productConnect->query($productTable) === TRUE) {
-//     echo "Table productInfo created successfully";
-//   } else {
-//     echo "Error creating table: " . $productConnect->error;
-//   }
+//  if ($productConnect->query($productTable) === TRUE) {
+//      echo "Table productInfo created successfully";
+//    } else {
+//      echo "Error creating table: " . $productConnect->error;
+//    }
   
 //sample data
 

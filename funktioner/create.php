@@ -7,6 +7,10 @@
 </head>
 <body>
 <?php
+
+?>
+<?php
+
     include './connect.php';
 if($_POST){
     // include database connection
@@ -19,7 +23,8 @@ if($_POST){
         $name=htmlspecialchars(strip_tags($_POST['productName']));
         $description=htmlspecialchars(strip_tags($_POST['productDescription']));
         $price=htmlspecialchars(strip_tags($_POST['price']));
-        $productImage=htmlspecialchars(strip_tags($_FILES['productImage']['name']));
+        $productImage=$_FILES['productImage']['name'];
+        move_uploaded_file($_FILES['productImage']['tmp_name'],"../image/$productImage");
         // bind the parameters
         $stmt->bindParam(':productName', $name);
         $stmt->bindParam(':productDescription', $description);
@@ -34,6 +39,7 @@ if($_POST){
         }else{
             echo "<div>Unable to save record.</div>";
         }
+        
     }
     // show error
     catch(PDOException $exception){

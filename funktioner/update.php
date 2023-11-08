@@ -46,7 +46,7 @@ if($_POST){
         // in this case, it seemed like we have so many fields to pass and
         // it is better to label them and not use question marks
         $query = "UPDATE productInfo
-                    SET productName=:productName, productDescription=:productDescription, price=:price
+                    SET productName=:productName, productDescription=:productDescription, price=:price, productImage=:productImage
                     WHERE id = :id";
         // prepare query for excecution
         $stmt = $con->prepare($query);
@@ -54,11 +54,17 @@ if($_POST){
         $productName=htmlspecialchars(strip_tags($_POST['productName']));
         $productDescription=htmlspecialchars(strip_tags($_POST['productDescription']));
         $price=htmlspecialchars(strip_tags($_POST['price']));
+        $productImage=$_FILES['productImage']['name'];
+
+        //move file
+        move_uploaded_file($_FILES['productImage']['tmp_name'],"../image/$productImage");
+
         // bind the parameters
         $stmt->bindParam(':productName', $productName);
         $stmt->bindParam(':productDescription', $productDescription);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':productImage', $productImage);
         // Execute the query
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was updated.</div>";
@@ -73,7 +79,7 @@ if($_POST){
 }
 ?>
 <!--we have our html form here where new record information can be updated-->
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <td>Name</td>
@@ -86,6 +92,9 @@ if($_POST){
         <tr>
             <td>Price</td>
             <td><input type='text' name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' /></td>
+        </tr><tr>
+            <td>Image</td>
+            <td>  <input type="file" name="productImage" value="" /></td>
         </tr>
         <tr>
             <td></td>

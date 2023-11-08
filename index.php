@@ -6,6 +6,7 @@
     <title>Products!</title>
     <script type='text/javascript'>
 // confirm record deletion
+<?php include "./funktioner/style.php"?>
 function delete_user( id ){
     var answer = confirm('Are you sure?');
     if (answer){

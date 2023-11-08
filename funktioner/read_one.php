@@ -32,6 +32,7 @@ try {
     $productName = $row['productName'];
     $productDescription = $row['productDescription'];
     $price = $row['price'];
+    $price = $row['productImage'];
 }
 // show error
 catch(PDOException $exception){
@@ -39,7 +40,7 @@ catch(PDOException $exception){
 }
 ?>
         <!--we have our html table here where the record will be displayed-->
-<table class='table table-hover table-responsive table-bordered'>
+<table class='table'>
     <tr>
         <td>Name</td>
         <td><?php echo htmlspecialchars($productName, ENT_QUOTES);  ?></td>
@@ -51,6 +52,10 @@ catch(PDOException $exception){
     <tr>
         <td>Price</td>
         <td><?php echo htmlspecialchars($price, ENT_QUOTES);  ?></td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td><?php echo htmlspecialchars($productImage, ENT_QUOTES);  ?></td>
     </tr>
     <tr>
         <td></td>

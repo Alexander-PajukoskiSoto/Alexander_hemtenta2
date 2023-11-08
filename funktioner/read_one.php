@@ -7,8 +7,8 @@
 </head>
 <body>
        <!-- container -->
-       <div class="container">
-        <div class="page-header">
+       <div>
+        <div>
             <h1>Read Product</h1>
         </div>
         <?php
@@ -20,7 +20,7 @@ include './connect.php';
 // read current record's data
 try {
     // prepare select query
-    $query = "SELECT id, productName, productDescription, price FROM productInfo WHERE id = ? LIMIT 0,1";
+    $query = "SELECT * FROM productInfo WHERE id = ? LIMIT 0,1";
     $stmt = $con->prepare( $query );
     // this is the first question mark
     $stmt->bindParam(1, $id);
@@ -32,7 +32,8 @@ try {
     $productName = $row['productName'];
     $productDescription = $row['productDescription'];
     $price = $row['price'];
-    $price = $row['productImage'];
+    $productImage = $row['productImage'];
+    $productImageImg = "<img src='../image/$productImage' width='150'>";
 }
 // show error
 catch(PDOException $exception){
@@ -55,12 +56,12 @@ catch(PDOException $exception){
     </tr>
     <tr>
         <td>Image</td>
-        <td><?php echo htmlspecialchars($productImage, ENT_QUOTES);  ?></td>
+        <td><?php echo ($productImageImg);  ?></td>
     </tr>
     <tr>
         <td></td>
         <td>
-            <a href='../index.php' class='btn btn-danger'>Back to read products</a>
+            <a href='../index.php'>Back to read products</a>
         </td>
     </tr>
 </table>

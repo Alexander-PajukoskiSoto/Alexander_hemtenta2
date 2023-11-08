@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products!</title>
+    <!-- Style through php file, because php hates css -->
+<?php include "./funktioner/style.php"?>
     <script type='text/javascript'>
 // confirm record deletion
-<?php include "./funktioner/style.php"?>
 function delete_user( id ){
     var answer = confirm('Are you sure?');
     if (answer){
@@ -33,7 +34,7 @@ function delete_user( id ){
         //check if more than 0 record found
         if($num>0){
                 //start table
-            echo "<table>";
+            echo "<table class='table'>";
             //creating our table heading
             echo "<tr>
                 <th>ID</th>

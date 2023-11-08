@@ -7,13 +7,12 @@
 </head>
 <body>
       <!-- container -->
-      <div class="container">
-        <div class="page-header">
+      <div>
+        <div>
             <h1>Update Product</h1>
         </div>
         <?php
         // get passed parameter value, in this case, the record ID
-        // isset() is a PHP function used to verify if a value is there or not
         $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
         //include database connection
         include './connect.php';
@@ -67,9 +66,9 @@ if($_POST){
         $stmt->bindParam(':productImage', $productImage);
         // Execute the query
         if($stmt->execute()){
-            echo "<div class='alert alert-success'>Record was updated.</div>";
+            echo "<div>Record was updated.</div>";
         }else{
-            echo "<div class='alert alert-danger'>Unable to update record. Please try again.</div>";
+            echo "<div>Unable to update record. Please try again.</div>";
         }
     }
     // show errors
@@ -83,15 +82,15 @@ if($_POST){
     <table>
         <tr>
             <td>Name</td>
-            <td><input type='text' name='productName' value="<?php echo htmlspecialchars($productName, ENT_QUOTES);  ?>" class='form-control' /></td>
+            <td><input type='text' name='productName' value="<?php echo htmlspecialchars($productName, ENT_QUOTES);  ?>" /></td>
         </tr>
         <tr>
             <td>Description</td>
-            <td><textarea name='productDescription' class='form-control'><?php echo htmlspecialchars($productDescription, ENT_QUOTES);  ?></textarea></td>
+            <td><textarea name='productDescription' ><?php echo htmlspecialchars($productDescription, ENT_QUOTES);  ?></textarea></td>
         </tr>
         <tr>
             <td>Price</td>
-            <td><input type='text' name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' /></td>
+            <td><input type='text' name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>"  /></td>
         </tr><tr>
             <td>Image</td>
             <td>  <input type="file" name="productImage" value="" /></td>
@@ -99,8 +98,8 @@ if($_POST){
         <tr>
             <td></td>
             <td>
-                <input type='submit' value='Save Changes' class='btn btn-primary' />
-                <a href='../index.php' class='btn btn-danger'>Back to read products</a>
+                <input type='submit' value='Save Changes' />
+                <a href='../index.php'>Back to read products</a>
             </td>
         </tr>
     </table>
